@@ -20,17 +20,39 @@ Plugin 'ervandew/supertab'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'powerline/powerline'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'
+Plugin 'posva/vim-vue'
+Plugin 'chrisbra/colorizer'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+set number
+set updatetime=250
+set background=dark
+
+let g:ycm_python_binary_path = 'python'
+let g:colorizer_auto_filetype='css,html,js,jsx'
+let g:colorizer_auto_color = 1
 let g:user_emmet_settings = {
 \	'javascript.jsx' : {
 \      'extends' : 'jsx',
 \  },
 \}
 
+let g:airline_theme = 'understated'
 map <C-h> :NERDTreeToggle<CR>
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files"
+
+" set completeopt-=preview
+
+colorscheme railscasts
 
 ""beautifiers
 "for js
@@ -50,6 +72,9 @@ autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 "for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+"for .vue files
+"autocmd BufNewFile,BufRead *.vue set syntax=html
 
 "by default, the indent is 4 spaces. 
 "set shiftwidth=4
@@ -108,7 +133,18 @@ let g:airline_mode_map = {
       	\ '' : 'S',
 \ }
 
-"let g:airline_theme = 'powerlineish'
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
 "let g:airline#extensions#hunks#enabled=0
 "let g:airline#extensions#branch#enabled=1
 
@@ -116,3 +152,4 @@ set ttimeoutlen=50
 set encoding=utf-8
 set t_Co=256
 set laststatus=2
+set cursorline
