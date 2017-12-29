@@ -5,107 +5,49 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'mattn/emmet-vim'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'csscomb/vim-csscomb.git'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'isRuslan/vim-es6'
-Plugin 'godlygeek/tabular'
-Plugin 'ervandew/supertab'
-Plugin 'vim-airline/vim-airline'
+Plugin 'w0rp/ale'
+Plugin 'valloric/youcompleteme'
+Plugin 'bling/vim-airline'
+Plugin 'beigebrucewayne/Turtles'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'powerline/powerline'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'mattn/emmet-vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'jistr/vim-nerdtree-tabs'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
-Plugin 'posva/vim-vue'
-Plugin 'chrisbra/colorizer'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'othree/yajs.vim'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'chriskempson/base16-vim'
+Plugin 'keith/swift.vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'git://git.wincent.com/command-t.git'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-set number
-set updatetime=250
-set background=dark
+colorscheme turtles "railscasts
 
-let g:ycm_python_binary_path = 'python'
-let g:colorizer_auto_filetype='css,html,js,jsx'
-let g:colorizer_auto_color = 1
-let g:user_emmet_settings = {
-\	'javascript.jsx' : {
-\      'extends' : 'jsx',
-\  },
-\}
-
-let g:airline_theme = 'understated'
 map <C-h> :NERDTreeToggle<CR>
-let g:nerdtree_tabs_open_on_console_startup=1
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files"
-
-" set completeopt-=preview
-
-colorscheme railscasts
-
-""beautifiers
-"for js
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-"for json
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-"for jsx
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-autocmd FileType javascript.jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
-autocmd FileType javascript.jsx vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-"for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-"for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
-
-"for .vue files
-"autocmd BufNewFile,BufRead *.vue set syntax=html
-
-"by default, the indent is 4 spaces. 
-"set shiftwidth=4
-"set softtabstop=4
-"set tabstop=4
-
-"for html/rb files, 2 spaces
-autocmd Filetype html setlocal ts=2 sw=2 noexpandtab
-autocmd Filetype javascript set ts=2 sw=2 noexpandtab
-autocmd Filetype javascript.jsx set ts=2 sw=2 noexpandtab
-autocmd Filetype jsx set ts=2 sw=2 noexpandtab
-autocmd Filetype ruby setlocal ts=2 sw=2 noexpandtab
-
-"for js/coffee/jade files, 4 spaces
-autocmd Filetype python setlocal ts=4 sw=4 sts=4 noexpandtab
-autocmd Filetype css setlocal ts=4 sw=4 sts=0 noexpandtab
-
-"set laststatus=2
-"set tabstop=4
-"set shiftwidth=4
-
-let g:airline_powerline_fontsi = 1 
-let g:Powerline_symbols='unicode'
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 
-" unicode symbols
-
-" powerline symbols
+let base16colorspace=256
+let NERDTreeShowHidden=1
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+let g:ycm_python_binary_path = 'python'
+let g:jsx_ext_required = 0
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:airline_powerline_fonts=1
+let g:airline_theme = 'understated'
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -117,39 +59,75 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
-
-
 let g:airline_mode_map = {
-	\ '__' : '-',
-      	\ 'n'  : 'N',
-     	 \ 'i'  : 'I',
-      	\ 'R'  : 'R',
-      	\ 'c'  : 'C',
-      	\ 'v'  : 'V',
-      	\ 'V'  : 'V',
-      	\ '' : 'V',
-      	\ 's'  : 'S',
-      	\ 'S'  : 'S',
-      	\ '' : 'S',
+\ '__' : '-',
+\ 'n'  : 'N',
+\ 'i'  : 'I',
+\ 'R'  : 'R',
+\ 'c'  : 'C',
+\ 'v'  : 'V',
+\ 'V'  : 'V',
+\ '' : 'V',
+\ 's'  : 'S',
+\ 'S'  : 'S',
+\ '' : 'S',
 \ }
+let s:brown = "905532"
+let s:aqua =  "3AFFDB"
+let s:blue = "689FB6"
+let s:darkBlue = "44788E"
+let s:purple = "834F79"
+let s:lightPurple = "834F79"
+let s:red = "AE403F"
+let s:beige = "F5C06F"
+let s:yellow = "F09F17"
+let s:orange = "D4843E"
+let s:darkOrange = "F16529"
+let s:pink = "CB6F6F"
+let s:salmon = "EE6E73"
+let s:green = "8FAA54"
+let s:lightGreen = "31B53E"
+let s:white = "FFFFFF"
+let s:rspec_red = 'FE405F'
+let s:git_orange = 'F54D27'
 
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
+let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExtensionHighlightColor['css'] = s:blue " sets the color of css files to blue
 
-"let g:airline#extensions#hunks#enabled=0
-"let g:airline#extensions#branch#enabled=1
+let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the color for .gitignore files
 
-set ttimeoutlen=50
-set encoding=utf-8
-set t_Co=256
+let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
+
+let g:ale_linters = {
+\	'javascript': ['eslint'],
+\}
+
+let g:ale_fixers = {
+\	'javascript': [
+\		'eslint',
+\	]
+\}
+
+let g:ale_fix_on_save = 1
+
 set laststatus=2
+set t_Co=256
 set cursorline
+set number
+set updatetime=250
+set encoding=utf8
+
+"for html/js/jsx/ruby files, 2 spaces
+"autocmd Filetype html setlocal ts=2 sw=2 sts=2
+"autocmd Filetype javascript setlocal ts=2 sw=2 sts=2
+"autocmd Filetype javascript.jsx setlocal ts=2 sw=2 sts=2
+"autocmd Filetype jsx setlocal ts=2 sw=2 sts=2
+"autocmd Filetype json setlocal ts=2 sw=2 sts=2
+"autocmd Filetype ruby setlocal ts=2 sw=2 sts=2
+"autocmd FileType yaml setlocal ts=2 expandtab sw=2 softtabstop=2
+
+"for js/coffee/jade files, 4 spaces
+"autocmd Filetype python setlocal ts=4 sw=4 sts=4 noexpandtab
+"autocmd Filetype css setlocal ts=4 sw=4 sts=0 noexpandtab
