@@ -27,11 +27,16 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'keith/swift.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'ajh17/spacegray.vim'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-colorscheme turtles "railscasts
+" colorscheme turtles "railscasts
+colorscheme spacegray
 
 map <C-h> :NERDTreeToggle<CR>
 
@@ -60,18 +65,18 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_mode_map = {
-\ '__' : '-',
-\ 'n'  : 'N',
-\ 'i'  : 'I',
-\ 'R'  : 'R',
-\ 'c'  : 'C',
-\ 'v'  : 'V',
-\ 'V'  : 'V',
-\ '' : 'V',
-\ 's'  : 'S',
-\ 'S'  : 'S',
-\ '' : 'S',
-\ }
+			\ '__' : '-',
+			\ 'n'  : 'N',
+			\ 'i'  : 'I',
+			\ 'R'  : 'R',
+			\ 'c'  : 'C',
+			\ 'v'  : 'V',
+			\ 'V'  : 'V',
+			\ '' : 'V',
+			\ 's'  : 'S',
+			\ 'S'  : 'S',
+			\ '' : 'S',
+			\ }
 let s:brown = "905532"
 let s:aqua =  "3AFFDB"
 let s:blue = "689FB6"
@@ -101,13 +106,11 @@ let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid err
 let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
 
 let g:ale_linters = {
-\	'javascript': ['eslint'],
+\ 'javascript': ['eslint'],
 \}
 
 let g:ale_fixers = {
-\	'javascript': [
-\		'eslint',
-\	]
+\ 'javascript': ['eslint']
 \}
 
 let g:ale_fix_on_save = 1
@@ -119,15 +122,7 @@ set number
 set updatetime=250
 set encoding=utf8
 
-"for html/js/jsx/ruby files, 2 spaces
-"autocmd Filetype html setlocal ts=2 sw=2 sts=2
-"autocmd Filetype javascript setlocal ts=2 sw=2 sts=2
-"autocmd Filetype javascript.jsx setlocal ts=2 sw=2 sts=2
-"autocmd Filetype jsx setlocal ts=2 sw=2 sts=2
-"autocmd Filetype json setlocal ts=2 sw=2 sts=2
-"autocmd Filetype ruby setlocal ts=2 sw=2 sts=2
-"autocmd FileType yaml setlocal ts=2 expandtab sw=2 softtabstop=2
+" CtrlP ignore dirs and files
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
-"for js/coffee/jade files, 4 spaces
-"autocmd Filetype python setlocal ts=4 sw=4 sts=4 noexpandtab
-"autocmd Filetype css setlocal ts=4 sw=4 sts=0 noexpandtab
+let g:ctrlp_custom_ignore = '\v[\/](node_modules)|(\.git)$'

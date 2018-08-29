@@ -77,11 +77,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$PATH{}:/opt/android-studio/bin/:/home/gustavo/Android/Sdk/platform-tools/:/home/gustavo/Android/Sdk/tools/:/home/gustavo/projetos/swift/swift-4/usr/bin:/opt/consul/:/opt/caddy/:/home/gustavo/Documentos/PokeMMO:/usr/local/go/bin
 
-# export nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # set vim as default editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -112,3 +107,8 @@ export GOPATH=$HOME/go
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:/home/gustavo/projetos/elixir/bin
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
