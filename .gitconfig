@@ -4,14 +4,14 @@
 [push]
     default = upstream
 [user]
-    name = Ícaro Ponce
-    email = ponceicaro@gmail.com
+    name = Gustavo Cosme
+    email = gustavocosme@outlook.com
 [color]
     ui = auto
 [color "status"]
     untracked = cyan
 [github]
-    user = icaroponce
+    user = gucosme
 [merge]
     tool = vimdiff
 [alias]
