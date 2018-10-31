@@ -36,7 +36,8 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " colorscheme turtles "railscasts
-colorscheme spacegray
+" colorscheme spacegray
+colorscheme tempus_classic
 
 map <C-h> :NERDTreeToggle<CR>
 
@@ -50,7 +51,7 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 let g:ycm_python_binary_path = 'python'
 let g:jsx_ext_required = 0
-let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_open_on_console_startup=0
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'understated'
 let g:airline_left_sep = ''
@@ -65,18 +66,18 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_mode_map = {
-			\ '__' : '-',
-			\ 'n'  : 'N',
-			\ 'i'  : 'I',
-			\ 'R'  : 'R',
-			\ 'c'  : 'C',
-			\ 'v'  : 'V',
-			\ 'V'  : 'V',
-			\ '' : 'V',
-			\ 's'  : 'S',
-			\ 'S'  : 'S',
-			\ '' : 'S',
-			\ }
+\ '__' : '-',
+\ 'n'  : 'N',
+\ 'i'  : 'I',
+\ 'R'  : 'R',
+\ 'c'  : 'C',
+\ 'v'  : 'V',
+\ 'V'  : 'V',
+\ '' : 'V',
+\ 's'  : 'S',
+\ 'S'  : 'S',
+\ '' : 'S',
+\ }
 let s:brown = "905532"
 let s:aqua =  "3AFFDB"
 let s:blue = "689FB6"
@@ -121,6 +122,7 @@ set cursorline
 set number
 set updatetime=250
 set encoding=utf8
+set cc=81
 
 " CtrlP ignore dirs and files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
