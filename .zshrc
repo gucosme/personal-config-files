@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/gustavo/.oh-my-zsh
+export ZSH=/home/gustavo/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,7 +51,7 @@ ZSH_THEME="hyperzsh"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow npm zsh-syntax-highlighting docker docker-compose)
+plugins=(git zsh-syntax-highlighting docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -75,11 +75,12 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-export PATH=$PATH{}:/opt/android-studio/bin/:/home/gustavo/Android/Sdk/platform-tools/:/home/gustavo/Android/Sdk/tools/:/home/gustavo/projetos/swift/swift-4/usr/bin:/opt/consul/:/opt/caddy/:/home/gustavo/Documentos/PokeMMO:/usr/local/go/bin
-
 # set vim as default editor
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
+
+alias v='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
+alias vim='NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -93,6 +94,7 @@ export EDITOR="$VISUAL"
 # alias for git flow bugfixes
 alias gflbs="git flow bugfix start"
 alias gflbf="git flow bugfix finish"
+alias gcd="git checkout development"
 
 # tmux alias
 alias t='tmux'
@@ -100,15 +102,38 @@ alias tn='tmux -2 new -s'
 alias ta='tmux -2 attach -t'
 alias tl='tmux ls'
 
-alias vimrc='vim ~/.vimrc'
+alias vimrc='vim ~/.config/nvim/init.vim'
 alias zshrc='vim ~/.zshrc'
 
-export GOPATH=$HOME/go
-export ANDROID_HOME=$HOME/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+alias prj='cd ~/projetos'
+alias terasql='mysql -h 0.0.0.0 -P 3306 -uroot -proot'
+alias vpn='sudo openvpn --config ~/vpn-teravoz/client.ovpn --auth-user-pass ~/vpn-teravoz/credentials'
+
+export PATH=$PATH:/usr/local/go/bin
+# export PATH=$PATH{}:/opt/android-studio/bin/
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:/home/gustavo/projetos/elixir/bin
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export GOPATH=$HOME/projetos/golang
+export GOBIN=$GOPATH/bin
+
+export PATH=$PATH:$GOBIN
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source $ZSH/custom/aliases/private-servers.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/kt:$PATH"
+
+export PATH=$PATH:$HOME/ngrok
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
