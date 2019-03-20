@@ -107,7 +107,6 @@ alias zshrc='vim ~/.zshrc'
 
 alias prj='cd ~/projetos'
 alias terasql='mysql -h 0.0.0.0 -P 3306 -uroot -proot'
-alias vpn='sudo openvpn --config ~/vpn-teravoz/client.ovpn --auth-user-pass ~/vpn-teravoz/credentials'
 
 export PATH=$PATH:/usr/local/go/bin
 # export PATH=$PATH{}:/opt/android-studio/bin/
